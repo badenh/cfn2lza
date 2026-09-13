@@ -1,0 +1,38 @@
+cfn2lza
+Copyright 2026 Baden Hughes
+
+This product includes software developed by Baden Hughes and cfn2lza
+contributors, licensed under the Apache License, Version 2.0.
+
+------------------------------------------------------------------------
+Third-party attribution
+------------------------------------------------------------------------
+
+The bundled example profiles under `examples/malaysia/` and
+`examples/thailand/` describe conventions of, and were derived through
+inspection of, the following source Landing Zone repositories:
+
+  * aws-samples/sample-malaysia-secure-lz
+    Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
+    Licensed under the MIT No Attribution license.
+    https://github.com/aws-samples/sample-malaysia-secure-lz
+
+  * aws-samples/sample-thailand-secure-lz
+    Copyright (c) 2025 awskrisada
+    Licensed under the MIT license.
+    https://github.com/aws-samples/sample-thailand-secure-lz
+
+No source code from either repository is redistributed as part of
+cfn2lza. The example profiles encode file-name and structural
+conventions of the referenced landing zones so cfn2lza can consume
+them; running `cfn2lza convert` reads (does not redistribute) the
+user-supplied source LZ.
+
+------------------------------------------------------------------------
+
+cfn2lza produces configuration files intended for use with
+`awslabs/landing-zone-accelerator-on-aws`, and the optional `dry-run`
+subcommand invokes the config-validator from that project.
+`landing-zone-accelerator-on-aws` is not bundled with cfn2lza and is
+subject to its own license terms (Apache-2.0). See:
+https://github.com/awslabs/landing-zone-accelerator-on-aws

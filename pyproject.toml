@@ -1,0 +1,67 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "cfn2lza"
+version = "0.1.0"
+description = "Convert CloudFormation-native AWS Landing Zones to Landing Zone Accelerator Universal Configuration"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.10"
+authors = [
+    { name = "Baden Hughes", email = "baden.hughes@gmail.com" },
+]
+maintainers = [
+    { name = "Baden Hughes", email = "baden.hughes@gmail.com" },
+]
+keywords = ["aws", "landing-zone", "lza", "cloudformation", "converter"]
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Systems Administration",
+]
+dependencies = [
+    "PyYAML>=6.0",
+    "jsonschema>=4.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov",
+]
+
+[project.scripts]
+cfn2lza = "cfn2lza.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/badenh/cfn2lza"
+Issues = "https://github.com/badenh/cfn2lza/issues"
+Source = "https://github.com/badenh/cfn2lza"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/cfn2lza"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"src/cfn2lza/templates/profile.py.tmpl" = "cfn2lza/templates/profile.py.tmpl"
+"NOTICE" = "cfn2lza-0.1.0.dist-info/NOTICE"
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "src/cfn2lza",
+    "examples",
+    "tests",
+    "docs",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "CHANGELOG.md",
+    "CONTRIBUTING.md",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
